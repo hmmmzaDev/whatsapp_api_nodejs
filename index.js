@@ -5,7 +5,7 @@ const fs = require('fs')
 
 async function sendTemplateMessage() {
     const response = await axios({
-        url: 'https://graph.facebook.com/v20.0/phone_number_id/messages',
+        url: 'https://graph.facebook.com/v20.0/421183664408566/messages',
         method: 'post',
         headers: {
             'Authorization': `Bearer ${process.env.WHATSAPP_TOKEN}`,
@@ -13,30 +13,41 @@ async function sendTemplateMessage() {
         },
         data: JSON.stringify({
             messaging_product: 'whatsapp',
-            to: 'phone_number',
+            to: '+923080931832',
             type: 'template',
-            template:{
-                name: 'discount',
+            template: {
+                name: 'deposit_template',
                 language: {
                     code: 'en_US'
                 },
                 components: [
                     {
-                        type: 'header',
-                        parameters: [
-                            {
-                                type: 'text',
-                                text: 'John Doe'
-                            }
-                        ]
-                    },
-                    {
                         type: 'body',
                         parameters: [
                             {
                                 type: 'text',
-                                text: '50'
-                            }
+                                text: "date"
+                            },
+                            {
+                                type: 'text',
+                                text: "amount"
+                            },
+                            {
+                                type: 'text',
+                                text: "plan"
+                            },
+                            {
+                                type: 'text',
+                                text: "ignored"
+                            },
+                            {
+                                type: 'text',
+                                text: "jnfkjnsfdkwer"
+                            },
+                            {
+                                type: 'text',
+                                text: "Developer"
+                            },
                         ]
                     }
                 ]
@@ -49,7 +60,7 @@ async function sendTemplateMessage() {
 
 async function sendTextMessage() {
     const response = await axios({
-        url: 'https://graph.facebook.com/v20.0/phone_number_id/messages',
+        url: 'https://graph.facebook.com/v20.0/421183664408566/messages',
         method: 'post',
         headers: {
             'Authorization': `Bearer ${process.env.WHATSAPP_TOKEN}`,
@@ -57,20 +68,20 @@ async function sendTextMessage() {
         },
         data: JSON.stringify({
             messaging_product: 'whatsapp',
-            to: 'phone_number',
+            to: '+923030031487',
             type: 'text',
-            text:{
-                body: 'This is a text message'
+            text: {
+                body: 'Kya haal hain beta??'
             }
         })
     })
 
-    console.log(response.data) 
+    console.log(response.data)
 }
 
 async function sendMediaMessage() {
     const response = await axios({
-        url: 'https://graph.facebook.com/v20.0/phone_number_id/messages',
+        url: 'https://graph.facebook.com/v20.0/435886059601181/messages',
         method: 'post',
         headers: {
             'Authorization': `Bearer ${process.env.WHATSAPP_TOKEN}`,
@@ -78,9 +89,9 @@ async function sendMediaMessage() {
         },
         data: JSON.stringify({
             messaging_product: 'whatsapp',
-            to: 'phone_number',
+            to: '+923030031487',
             type: 'image',
-            image:{
+            image: {
                 //link: 'https://dummyimage.com/600x400/000/fff.png&text=manfra.io',
                 id: '512126264622813',
                 caption: 'This is a media message'
@@ -88,7 +99,7 @@ async function sendMediaMessage() {
         })
     })
 
-    console.log(response.data)    
+    console.log(response.data)
 }
 
 async function uploadImage() {
@@ -106,10 +117,10 @@ async function uploadImage() {
         data: data
     })
 
-    console.log(response.data)     
+    console.log(response.data)
 }
 
-// sendTemplateMessage()
+sendTemplateMessage()
 
 // sendTextMessage()
 
